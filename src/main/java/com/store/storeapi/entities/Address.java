@@ -1,24 +1,30 @@
-package com.store.storeapi.dto;
+package com.store.storeapi.entities;
 
-public class AddressDTO {
-    private String streetName;
+import javax.persistence.Embeddable;
+
+@Embeddable
+public class Address {
+    private String street;
     private String number;
     private String complement;
     private String zipcode;
 
-    public AddressDTO(String streetName, String number, String complement, String zipcode) {
-        this.streetName = streetName;
+    public Address() {
+    }
+
+    public Address(String street, String number, String complement, String zipcode) {
+        this.street = street;
         this.number = number;
         this.complement = complement;
         this.zipcode = zipcode;
     }
 
-    public String getStreetName() {
-        return streetName;
+    public String getStreet() {
+        return street;
     }
 
-    public void setStreetName(String streetName) {
-        this.streetName = streetName;
+    public void setStreet(String street) {
+        this.street = street;
     }
 
     public String getNumber() {

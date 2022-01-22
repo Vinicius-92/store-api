@@ -1,0 +1,7 @@
+CREATE TABLE subsidiary (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    street VARCHAR(255) NOT NULL,
+    number VARCHAR(255) NOT NULL,
+    complement VARCHAR(255)
+);

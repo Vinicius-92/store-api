@@ -1,23 +1,25 @@
-package com.store.storeapi.dto;
+package com.store.storeapi.dto.subsidiary;
+
+import com.store.storeapi.dto.address.AddressDTO;
 
 public class CreateSubsidiaryDTO {
-    private String nome;
+    private String name;
     private AddressDTO addressDTO;
 
     public CreateSubsidiaryDTO() {
     }
 
-    public CreateSubsidiaryDTO(String nome, AddressDTO addressDTO) {
-        this.nome = nome;
+    public CreateSubsidiaryDTO(String name, AddressDTO addressDTO) {
+        this.name = name;
         this.addressDTO = addressDTO;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public AddressDTO getAddressDTO() {

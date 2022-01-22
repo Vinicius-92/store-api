@@ -1,4 +1,6 @@
-package com.store.storeapi.dto;
+package com.store.storeapi.dto.subsidiary;
+
+import com.store.storeapi.dto.address.AddressDTO;
 
 public class ReturnSubsidiaryDTO {
     private Long id;
