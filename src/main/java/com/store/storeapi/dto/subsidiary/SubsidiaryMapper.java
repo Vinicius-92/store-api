@@ -6,7 +6,7 @@ import com.store.storeapi.entities.Subsidiary;
 public class SubsidiaryMapper {
 
     public static Subsidiary fromDTO(CreateSubsidiaryDTO dto) {
-        return new Subsidiary(null, dto.getName(), AddressMapper.fromDTO(dto.getAddressDTO()));
+        return new Subsidiary(null, dto.getName(), AddressMapper.fromDTO(dto.getAddress()));
     }
 
     public static ReturnSubsidiaryDTO fromEntity(Subsidiary subsidiary) {

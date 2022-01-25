@@ -4,14 +4,14 @@ import com.store.storeapi.dto.address.AddressDTO;
 
 public class CreateSubsidiaryDTO {
     private String name;
-    private AddressDTO addressDTO;
+    private AddressDTO address;
 
     public CreateSubsidiaryDTO() {
     }
 
     public CreateSubsidiaryDTO(String name, AddressDTO addressDTO) {
         this.name = name;
-        this.addressDTO = addressDTO;
+        this.address = addressDTO;
     }
 
     public String getName() {
@@ -22,11 +22,11 @@ public class CreateSubsidiaryDTO {
         this.name = name;
     }
 
-    public AddressDTO getAddressDTO() {
-        return addressDTO;
+    public AddressDTO getAddress() {
+        return address;
     }
 
-    public void setAddressDTO(AddressDTO addressDTO) {
-        this.addressDTO = addressDTO;
+    public void setAddress(AddressDTO address) {
+        this.address = address;
     }
 }

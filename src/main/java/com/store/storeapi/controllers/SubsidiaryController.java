@@ -29,7 +29,6 @@ public class SubsidiaryController {
 
     @PostMapping
     public ResponseEntity<ReturnSubsidiaryDTO> createNewSubsidiary(@RequestBody CreateSubsidiaryDTO dto) {
-        System.out.println(dto.getName());
         var sub = subsidiaryService.saveSubsidiary(SubsidiaryMapper.fromDTO(dto));
         var uri = ServletUriComponentsBuilder
                 .fromCurrentRequest()
