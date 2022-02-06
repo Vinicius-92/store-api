@@ -5,9 +5,9 @@ import com.store.storeapi.dto.subsidiary.UpdateSubsidiaryDTO;
 import com.store.storeapi.entities.Subsidiary;
 import com.store.storeapi.exceptions.EntityNotFoundException;
 import com.store.storeapi.repositories.SubsidiaryRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class SubsidiaryService {
@@ -22,8 +22,8 @@ public class SubsidiaryService {
         return subsidiaryRepository.save(sub);
     }
 
-    public List<Subsidiary> getAllSubsidiaries() {
-        return subsidiaryRepository.findAll();
+    public Page<Subsidiary> getAllSubsidiaries(Pageable page) {
+        return subsidiaryRepository.findAll(page);
     }
 
     public Subsidiary getById(Long id) {

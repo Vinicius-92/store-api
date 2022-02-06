@@ -5,6 +5,9 @@ import com.store.storeapi.dto.subsidiary.ReturnSubsidiaryDTO;
 import com.store.storeapi.dto.subsidiary.SubsidiaryMapper;
 import com.store.storeapi.dto.subsidiary.UpdateSubsidiaryDTO;
 import com.store.storeapi.services.SubsidiaryService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -23,9 +26,9 @@ public class SubsidiaryController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ReturnSubsidiaryDTO>> getAllSubsidiaries() {
-        return ResponseEntity.ok(subsidiaryService.getAllSubsidiaries()
-                .stream().map(SubsidiaryMapper::fromEntity).collect(Collectors.toList()));
+    public ResponseEntity<Page<ReturnSubsidiaryDTO>> getAllSubsidiaries(@PageableDefault Pageable page) {
+        return ResponseEntity.ok(subsidiaryService.getAllSubsidiaries(page)
+                .map(SubsidiaryMapper::fromEntity));
     }
 
     @GetMapping("{id}")
