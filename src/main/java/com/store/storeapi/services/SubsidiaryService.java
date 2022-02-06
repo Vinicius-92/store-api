@@ -1,10 +1,9 @@
 package com.store.storeapi.services;
 
-import com.store.storeapi.dto.subsidiary.CreateSubsidiaryDTO;
-import com.store.storeapi.dto.subsidiary.ReturnSubsidiaryDTO;
 import com.store.storeapi.dto.subsidiary.SubsidiaryMapper;
 import com.store.storeapi.dto.subsidiary.UpdateSubsidiaryDTO;
 import com.store.storeapi.entities.Subsidiary;
+import com.store.storeapi.exceptions.EntityNotFoundException;
 import com.store.storeapi.repositories.SubsidiaryRepository;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +27,7 @@ public class SubsidiaryService {
     }
 
     public Subsidiary getById(Long id) {
-        return subsidiaryRepository.findById(id).orElseThrow(() -> new RuntimeException("Subsidiary not found."));
+        return subsidiaryRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Subsidiary not found."));
     }
 
     public Subsidiary updateSubsidiary(UpdateSubsidiaryDTO sub, Long id) {

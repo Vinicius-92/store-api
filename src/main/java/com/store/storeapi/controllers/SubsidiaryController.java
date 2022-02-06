@@ -4,7 +4,6 @@ import com.store.storeapi.dto.subsidiary.CreateSubsidiaryDTO;
 import com.store.storeapi.dto.subsidiary.ReturnSubsidiaryDTO;
 import com.store.storeapi.dto.subsidiary.SubsidiaryMapper;
 import com.store.storeapi.dto.subsidiary.UpdateSubsidiaryDTO;
-import com.store.storeapi.entities.Subsidiary;
 import com.store.storeapi.services.SubsidiaryService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -31,12 +30,8 @@ public class SubsidiaryController {
 
     @GetMapping("{id}")
     public ResponseEntity<ReturnSubsidiaryDTO> getById(@PathVariable Long id) {
-        try {
-            var sub = subsidiaryService.getById(id);
-            return ResponseEntity.ok(SubsidiaryMapper.fromEntity(sub));
-        } catch (RuntimeException ex) {
-            return ResponseEntity.notFound().build();
-        }
+         var sub = subsidiaryService.getById(id);
+        return ResponseEntity.ok(SubsidiaryMapper.fromEntity(sub));
     }
 
     @PostMapping
@@ -52,11 +47,7 @@ public class SubsidiaryController {
 
     @PutMapping("{id}")
     public ResponseEntity<ReturnSubsidiaryDTO> updateSubsidiary(@RequestBody UpdateSubsidiaryDTO sub, @PathVariable Long id) {
-        try {
-            var updatedSub = subsidiaryService.updateSubsidiary(sub, id);
-            return ResponseEntity.ok(SubsidiaryMapper.fromEntity(updatedSub));
-        } catch (RuntimeException ex) {
-            return ResponseEntity.notFound().build();
-        }
+        var updatedSub = subsidiaryService.updateSubsidiary(sub, id);
+        return ResponseEntity.ok(SubsidiaryMapper.fromEntity(updatedSub));
     }
 }
