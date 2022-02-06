@@ -31,8 +31,12 @@ public class SubsidiaryController {
 
     @GetMapping("{id}")
     public ResponseEntity<ReturnSubsidiaryDTO> getById(@PathVariable Long id) {
-        var sub = subsidiaryService.getById(id);
-        return ResponseEntity.ok(SubsidiaryMapper.fromEntity(sub));
+        try {
+            var sub = subsidiaryService.getById(id);
+            return ResponseEntity.ok(SubsidiaryMapper.fromEntity(sub));
+        } catch (RuntimeException ex) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @PostMapping
@@ -48,7 +52,11 @@ public class SubsidiaryController {
 
     @PutMapping("{id}")
     public ResponseEntity<ReturnSubsidiaryDTO> updateSubsidiary(@RequestBody UpdateSubsidiaryDTO sub, @PathVariable Long id) {
-        var updatedSub = subsidiaryService.updateSubsidiary(sub, id);
-        return ResponseEntity.ok(SubsidiaryMapper.fromEntity(updatedSub));
+        try {
+            var updatedSub = subsidiaryService.updateSubsidiary(sub, id);
+            return ResponseEntity.ok(SubsidiaryMapper.fromEntity(updatedSub));
+        } catch (RuntimeException ex) {
+            return ResponseEntity.notFound().build();
+        }
     }
 }

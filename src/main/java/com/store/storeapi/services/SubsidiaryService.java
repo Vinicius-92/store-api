@@ -28,7 +28,7 @@ public class SubsidiaryService {
     }
 
     public Subsidiary getById(Long id) {
-        return subsidiaryRepository.findById(id).orElseThrow();
+        return subsidiaryRepository.findById(id).orElseThrow(() -> new RuntimeException("Subsidiary not found."));
     }
 
     public Subsidiary updateSubsidiary(UpdateSubsidiaryDTO sub, Long id) {
