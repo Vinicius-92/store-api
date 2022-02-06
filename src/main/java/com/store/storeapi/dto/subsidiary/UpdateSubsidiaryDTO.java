@@ -2,15 +2,15 @@ package com.store.storeapi.dto.subsidiary;
 
 import com.store.storeapi.dto.address.AddressDTO;
 
-public class ReturnSubsidiaryDTO {
+public class UpdateSubsidiaryDTO {
     private Long id;
     private String name;
     private AddressDTO addressDTO;
 
-    public ReturnSubsidiaryDTO() {
+    public UpdateSubsidiaryDTO() {
     }
 
-    public ReturnSubsidiaryDTO(Long id, String name, AddressDTO addressDTO) {
+    public UpdateSubsidiaryDTO(Long id, String name, AddressDTO addressDTO) {
         this.id = id;
         this.name = name;
         this.addressDTO = addressDTO;
